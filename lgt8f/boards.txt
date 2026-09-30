@@ -1,96 +1,76 @@
 # See: http://code.google.com/p/arduino/wiki/Platforms
 # Based on https://github.com/LGTMCU/Larduino_HSP
 
-# Menu options
 menu.clock_source=Clock Source
 menu.clock_div=Clock Divider
 menu.variant=Variant
 menu.arduino_isp=SERIAL_RX_BUFFER_SIZE
 menu.upload_speed=Upload speed
 
-#############################
-#### LGT8F328 P/E/S      ####
-#############################
+# LGT8F328P board with 4 KB EEPROM reserved.
+328p4k.name=LGT8F328P (4 KB EEPROM)
+328p4k.upload.tool=avrdude
+328p4k.upload.protocol=arduino
+328p4k.upload.maximum_data_size=2048
+328p4k.upload.maximum_size=23552
+328p4k.bootloader.tool=avrdude
+328p4k.bootloader.high_fuses=0xff
+328p4k.bootloader.low_fuses=0xff
+328p4k.bootloader.extended_fuses=0xff
+328p4k.bootloader.unlock_bits=0x3f
+328p4k.bootloader.lock_bits=0x3f
+328p4k.bootloader.path=lgt8fx8p_4kb
+328p4k.build.core=lgt8f
+328p4k.build.mcu=atmega328p
+328p4k.build.board=AVR_LARDU_328E
 
-328.name=LGT8F328
-328.upload.tool=avrdude
-328.upload.protocol=arduino
-328.upload.maximum_data_size=2048
-328.upload.maximum_size=29696
-328.bootloader.tool=avrdude
-328.bootloader.high_fuses=0xff
-328.bootloader.low_fuses=0xff
-328.bootloader.extended_fuses=0xff
-328.bootloader.unlock_bits=0x3f
-328.bootloader.lock_bits=0x3f
-328.build.core=lgt8f
-328.build.mcu=atmega328p
-328.build.board=AVR_LARDU_328E
+328p4k.menu.arduino_isp.disable=64 (normal)
+328p4k.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
+328p4k.menu.arduino_isp.enable=250 (to burn ISP)
+328p4k.menu.arduino_isp.enable.build.SERIAL_RX_BUFFER_SIZE=250
 
-# Arduino as ISP
-328.menu.arduino_isp.disable=64 (normal)
-328.menu.arduino_isp.disable.build.SERIAL_RX_BUFFER_SIZE=64
-328.menu.arduino_isp.enable=250 (to burn ISP)
-328.menu.arduino_isp.enable.build.SERIAL_RX_BUFFER_SIZE=250
+328p4k.menu.clock_source.internal=Internal 32MHz
+328p4k.menu.clock_source.internal.build.clock_source=1
+328p4k.menu.clock_source.internal.build.f_osc=32000000L
+328p4k.menu.clock_source.external_32=External 32MHz
+328p4k.menu.clock_source.external_32.build.clock_source=2
+328p4k.menu.clock_source.external_32.build.f_osc=32000000L
+328p4k.menu.clock_source.external_16=External 16MHz
+328p4k.menu.clock_source.external_16.build.clock_source=2
+328p4k.menu.clock_source.external_16.build.f_osc=16000000L
+328p4k.menu.clock_source.external_12=External 12MHz
+328p4k.menu.clock_source.external_12.build.clock_source=2
+328p4k.menu.clock_source.external_12.build.f_osc=12000000L
 
-# Clock source
-328.menu.clock_source.internal=Internal 32MHz
-328.menu.clock_source.internal.build.clock_source=1
-328.menu.clock_source.internal.build.f_osc=32000000L
-328.menu.clock_source.external_32=External 32MHz
-328.menu.clock_source.external_32.build.clock_source=2
-328.menu.clock_source.external_32.build.f_osc=32000000L
-328.menu.clock_source.external_16=External 16MHz
-328.menu.clock_source.external_16.build.clock_source=2
-328.menu.clock_source.external_16.build.f_osc=16000000L
-328.menu.clock_source.external_12=External 12MHz
-328.menu.clock_source.external_12.build.clock_source=2
-328.menu.clock_source.external_12.build.f_osc=12000000L
+328p4k.menu.clock_div.1=1
+328p4k.menu.clock_div.1.build.f_div=1
+328p4k.menu.clock_div.2=2
+328p4k.menu.clock_div.2.build.f_div=2
+328p4k.menu.clock_div.4=4
+328p4k.menu.clock_div.4.build.f_div=4
+328p4k.menu.clock_div.8=8
+328p4k.menu.clock_div.8.build.f_div=8
+328p4k.menu.clock_div.16=16
+328p4k.menu.clock_div.16.build.f_div=16
+328p4k.menu.clock_div.32=32
+328p4k.menu.clock_div.32.build.f_div=32
 
-# Clock divider
-328.menu.clock_div.1=1
-328.menu.clock_div.1.build.f_div=1
-328.menu.clock_div.2=2
-328.menu.clock_div.2.build.f_div=2
-328.menu.clock_div.4=4
-328.menu.clock_div.4.build.f_div=4
-328.menu.clock_div.8=8
-328.menu.clock_div.8.build.f_div=8
-328.menu.clock_div.16=16
-328.menu.clock_div.16.build.f_div=16
-328.menu.clock_div.32=32
-328.menu.clock_div.32.build.f_div=32
+328p4k.menu.variant.modelP=328P-LQFP32 MiniEVB
+328p4k.menu.variant.modelP.bootloader.file=lgt8fx8p_4kb/optiboot_lgt8f328p_4kb.hex
+328p4k.menu.variant.modelP.build.variant=lgt8fx8p
+328p4k.menu.variant.modelP48=328P-LQFP48 MiniEVB (untested)
+328p4k.menu.variant.modelP48.bootloader.file=lgt8fx8p_4kb/optiboot_lgt8f328p_4kb.hex
+328p4k.menu.variant.modelP48.build.variant=lgt8fx8p48
+328p4k.menu.variant.modelP-wemos-TTGO-XI=328P-LQFP32 Wemos TTGO XI (untested)
+328p4k.menu.variant.modelP-wemos-TTGO-XI.bootloader.file=lgt8fx8p_4kb/optiboot_lgt8f328p_4kb.hex
+328p4k.menu.variant.modelP-wemos-TTGO-XI.build.variant=lgt8fx8p-wemos-TTGO-XI
+328p4k.menu.variant.modelP_SSOP20=328P-SSOP20 (untested)
+328p4k.menu.variant.modelP_SSOP20.bootloader.file=lgt8fx8p_4kb/optiboot_lgt8f328p_4kb.hex
+328p4k.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
 
-# Variants
-328.menu.variant.modelP=328P-LQFP32 (e.g. MiniEVB nano-style or WAVGAT)
-328.menu.variant.modelP.bootloader.path=lgt8fx8p
-328.menu.variant.modelP.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-328.menu.variant.modelP.build.variant=lgt8fx8p
-
-328.menu.variant.modelP48=328P-LQFP48 MiniEVB
-328.menu.variant.modelP48.bootloader.path=lgt8fx8p
-328.menu.variant.modelP48.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-328.menu.variant.modelP48.build.variant=lgt8fx8p48
-
-328.menu.variant.modelP-wemos-TTGO-XI=328P-LQFP32 wemos-TTGO-XI
-328.menu.variant.modelP-wemos-TTGO-XI.bootloader.path=lgt8fx8p
-328.menu.variant.modelP-wemos-TTGO-XI.bootloader.file=lgt8fx8p/optiboot_lgt8f328p.hex
-328.menu.variant.modelP-wemos-TTGO-XI.build.variant=lgt8fx8p-wemos-TTGO-XI
-
-328.menu.variant.modelD=328D (rare)
-328.menu.variant.modelD.bootloader.path=lgt8fx8e
-328.menu.variant.modelD.bootloader.file=lgt8fx8e/optiboot_lgt8f328d.hex
-328.menu.variant.modelD.build.variant=lgt8fx8e
-
-328.menu.variant.modelP_SSOP20=328P-SSOP20 (e.g. green pseudo pro mini)
-328.menu.variant.modelP_SSOP20.bootloader.path=lgt8fx8ps20
-328.menu.variant.modelP_SSOP20.bootloader.file=lgt8fx8ps20/optiboot_lgt8f328ps20.hex
-328.menu.variant.modelP_SSOP20.build.variant=lgt8fx8ps20
-
-# Upload Speeds
-328.menu.upload_speed.57600=57600
-328.menu.upload_speed.57600.upload.speed=57600
-328.menu.upload_speed.115200=115200
-328.menu.upload_speed.115200.upload.speed=115200
-328.menu.upload_speed.19200=19200
-328.menu.upload_speed.19200.upload.speed=19200
+328p4k.menu.upload_speed.57600=57600
+328p4k.menu.upload_speed.57600.upload.speed=57600
+328p4k.menu.upload_speed.115200=115200
+328p4k.menu.upload_speed.115200.upload.speed=115200
+328p4k.menu.upload_speed.19200=19200
+328p4k.menu.upload_speed.19200.upload.speed=19200

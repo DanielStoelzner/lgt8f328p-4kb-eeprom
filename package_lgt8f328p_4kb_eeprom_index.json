@@ -1,0 +1,42 @@
+{
+  "packages": [
+    {
+      "name": "lgt8f328p_4kb_eeprom",
+      "maintainer": "Daniel Stoelzner",
+      "websiteURL": "https://github.com/DanielStoelzner/lgt8f328p-4kb-eeprom",
+      "help": {
+        "online": "https://github.com/DanielStoelzner/lgt8f328p-4kb-eeprom/issues"
+      },
+      "platforms": [
+        {
+          "name": "LGT8F328P Boards (4 KB EEPROM Option)",
+          "architecture": "avr",
+          "version": "2.0.8",
+          "category": "Contributed",
+          "help": {
+            "online": "https://github.com/DanielStoelzner/lgt8f328p-4kb-eeprom/issues"
+          },
+          "url": "https://github.com/DanielStoelzner/lgt8f328p-4kb-eeprom/releases/download/v2.0.8/lgt8f-2.0.8.zip",
+          "archiveFileName": "lgt8f-2.0.8.zip",
+          "checksum": "SHA-256:893f18224f1fbf812081913a5f04df32de22edf9f3b4a496f166c1d91de936b7",
+          "size": "675243",
+          "boards": [
+            { "name": "LGT8F328P (4 KB EEPROM)" }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "avr-gcc",
+              "version": "7.3.0-atmel3.6.1-arduino7"
+            },
+            {
+              "packager": "arduino",
+              "name": "avrdude",
+              "version": "6.3.0-arduino17"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
